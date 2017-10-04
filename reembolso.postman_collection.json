@@ -1,0 +1,1067 @@
+{
+	"variables": [],
+	"info": {
+		"name": "mcr-reembolso",
+		"_postman_id": "211b0e83-436a-9ac1-777a-99c8fc006cb8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clinica",
+			"description": "",
+			"item": [
+				{
+					"name": "clinica/cadastrar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/clinica/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dados\":{\n        \"nome_fantasia\":\"Clinica Médica\",\n        \"razao_social\":\"Clinica LTDA\",\n        \"cnpj\":\"123456789\",\n        \"email\":\"clinica@clinica.com.br\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "clinica/ativos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/clinica/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "clinica/medicos/cadastrar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/clinica/medicos/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dados\":{\n        \n        \"id_clinica\":\"1\",\n        \"id_medico\":\"2\",\n        \"principal\":\"1\"\n        \n    }\n    \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "clinica/medicos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/clinica/medicos/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Convenio",
+			"description": "",
+			"item": [
+				{
+					"name": "convenio/cadastrar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/convenio/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dados\":{\n        \n        \"nome\":\"Medial Saúde\"\n        \n    }\n    \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "convenio/ativos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/convenio/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dados\":{\n        \n        \"nome\":\"Medial Saúde\"\n        \n    }\n    \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "convenio/ativos copy",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/convenio/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dados\":{\n        \n        \"nome\":\"Medial Saúde\"\n        \n    }\n    \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endereco",
+			"description": "",
+			"item": [
+				{
+					"name": "endereco/tipo",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/endereco/tipo",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pessoa",
+			"description": "",
+			"item": [
+				{
+					"name": "pessoa/ativos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/cadastrar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dados\":{\n        \"id_tipo_pessoa\":\"1\",\n        \"id_usuario\":\"1\",\n        \"nome\":\"Rafael\",\n        \"sobrenome\":\"Lemes\",\n        \"email\":\"rafael.ads09@gmail.com\",\n        \"cpf\":\"36097269897\",\n        \"ativo\":\"1\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/alterar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dados\":\n    {\n        \"id\":\"1\",\n        \"set\":\n        {\n          \"sobrenome\":\"Lemes Bonitão\"\n        }\n    } \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/deletar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"dados\":{\n    \"id\":\"1\"\n}}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/id/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/usuario",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/usuario/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/tipo",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/tipo/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/nome",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/nome/rafa",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/sobrenome",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/sobrenome/lemes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/cpf",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/cpf/36097269897",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/email",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/email/rafa",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/crm",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/pessoa/crm/123",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "pessoa/filtro",
+					"request": {
+						"url": "http://localhost:3000/pessoa/filtro?nome=raf",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plano",
+			"description": "",
+			"item": [
+				{
+					"name": "plano/cadastrar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/plano/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dados\":{\n        \"nome\":\"Top Nacional\",\n        \"decricao\":\"Top é só no nome mesmo\",\n        \"id_convenio\":\"1\"\n        \n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "plano/ativos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/plano/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dados\":{\n        \"nome\":\"Top Nacional\",\n        \"decricao\":\"Top é só no nome mesmo\",\n        \"id_convenio\":\"1\"\n        \n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Previa",
+			"description": "",
+			"item": [
+				{
+					"name": "Pacientes",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/previa/clinica/pacientes/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Convenios",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/previa/clinica/convenios/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Filtro",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/previa/filtro?ativo=1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"description": "",
+			"item": [
+				{
+					"name": "users/logout",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/users/logout",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "logout"
+					},
+					"response": []
+				},
+				{
+					"name": "user/login",
+					"request": {
+						"url": "http://localhost:3000/users/login/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"dados\": {\n    \"login\":\"rafa.lemes\",\n    \"senha\":\"123\"\n}}"
+						},
+						"description": "login"
+					},
+					"response": []
+				},
+				{
+					"name": "users/ativos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/users/ativos",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "users/inativos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/users/inativos",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "user/cadastrar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/users/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"dados\":{\n    \n    \"login\":\"teste\",\n    \"senha\":\"123\",\n    \"ativo\":\"1\",\n    \"id_perfil\":\"1\"\n    \n    \n}}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "user/alterar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/users/",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"dados\":{\n    \n    \"id\":\"2\",\n    \"set\":{\n        \"ativo\":\"0\"\n        }\n}}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "users/deletar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/users",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"dados\":{\n    \"id\":\"2\"\n}}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "users/consultar/perfil",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/users/consultar/perfil/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "users/consultar/login",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "rafa.lemes",
+								"password": "123",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:3000/users/consultar/login/ra",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cmFmYS5sZW1lczoxMjM=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

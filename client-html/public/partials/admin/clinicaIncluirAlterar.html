@@ -1,0 +1,117 @@
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          Clínicas
+          <small>Administração</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li>
+            <i class="fa fa-dashboard"></i>
+            <a ng-href="#/">Dashboard</a>
+          </li>
+          <li >
+            <i class="fa fa-fw fa-hospital-o"></i>
+            <a ng-href="#/admin/clinicas/">Clínicas</a>
+          </li>
+          <li class="active">
+            <i class="fa {{icone}}"></i>
+            {{nomePagina}}
+          </li>
+        </ol>
+      </div>
+    </div>
+    <!-- /.row -->
+<form name="form">
+    <div class="row">
+      <div class="col-md-12">
+
+      <div class="alert alert-danger" ng-show="isShowErrorMessage()">
+        <i class="fa fa-exclamation-circle"> </i>
+          <span> Por favor, verifique os erros!</span>
+      </div>
+      <div class="alert alert-success" ng-show="isShowSuccessMessage()">
+        <i class="fa fa-check-square-o"> </i>
+          <span> Clínica Salvo com Sucesso!</span>
+      </div>
+    </div>
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group {{form.razao.$error.required ? 'has-error' : ''}}">
+          <label>Razão Social:
+          </label>
+          <input class="form-control" name="razao" placeholder="Razão Social"
+          ng-model="clinica.dados.razao_social"
+          ng-required="true" uppercase
+          ></input>
+          <span ng-show="form.razao.$error.required" class="label label-danger"> Campo Obrigatório </span>
+
+        </div>
+      </div>
+
+
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group {{form.nome.$error.required ? 'has-error' : ''}}">
+          <label>Nome Fantasia:
+          </label>
+          <input class="form-control" name="nome" placeholder="Nome Fantasia"
+          ng-model="clinica.dados.nome_fantasia" uppercase
+          ng-required="true"
+          ></input>
+          <span ng-show="form.nome.$error.required" class="label label-danger"> Campo Obrigatório </span>
+
+        </div>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-5">
+          <div class="form-group {{form.cnpj.$error.cpf ? 'has-error' : ''}}">
+            <label>CNPJ:
+            </label>
+            <input class="form-control" name="cnpj" placeholder="CNPJ" ng-model="funcionario.dados.cnpj" uppercase ui-br-cnpj-mask>
+            <span class="label label-danger" ng-show="form.cnpj.$error.cnpj">
+                CNPJ Inválido
+            </span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-5">
+        <div class="form-group {{form.email.$error.email? 'has-error' : ''}}">
+          <label>Email:
+          </label>
+          <div class="form-group input-group" style="margin-top:0">
+            <span class="input-group-addon">@</span>
+            <input type="email" class="form-control" name="email" placeholder="Email" uppercase ng-model="funcionario.dados.email">
+          </div>
+          <span class="label label-danger" ng-show="form.email.$error.email">
+              Email Inválido
+          </span>
+        </div>
+          </div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+          <label>Descrição:
+          </label>
+          <input class="form-control" placeholder="Descrição" ng-model="clinica.dados.descricao" uppercase></input>
+        </div>
+      </div>
+    </div>
+
+
+</form>
+
+<div ng-show="clinica.dados.id" ng-include="'partials/includes/clinica-convenios.tpl.html'"></div>
+
+    <div class="row">
+      <div class="col-md-8">
+
+        <button type="button" class="btn btn-lg  btn-primary" ng-click="salvar()">
+          Salvar
+        </button>
+        <button type="button" class="btn btn-lg  btn-default" ng-click="voltar()">
+          Voltar
+        </button>
+
+      </div>
+    </div>

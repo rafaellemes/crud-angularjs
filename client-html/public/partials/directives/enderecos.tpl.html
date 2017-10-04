@@ -1,0 +1,205 @@
+<div class="page-header">
+    <h1>  </h1>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12 col-lg-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="panel-title">  Endereços</span>
+        <div class="pull-right">
+            <button type="button" class="btn btn-info fa fa-plus"
+                    data-toggle="modal"
+                    data-target="#modalEndereco"
+                    ng-click="novoEndereco()"></button>
+         </div>
+
+      </div>
+
+      <div class="panel-body">
+        <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Endereço</th>
+                                    <th>Nº / Complemento</th>
+                                    <th>CEP</th>
+                                    <th>BAIRRO</th>
+                                    <th>Cidade / Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr dir-paginate="endereco in listaEndereco  | itemsPerPage: 5">
+                                    <td>{{endereco.tipo}}</td>
+                                    <td>{{endereco.logradouro}}</td>
+                                    <td>{{endereco.numero}} / {{endereco.complemento}}</td>
+                                    <td>{{endereco.cep}}</td>
+                                    <td>{{endereco.bairro}}</td>
+                                    <td>{{endereco.cidade}} / {{endereco.estado}}</td>
+                                    <td>
+                                      <div>
+                                          <button type="button" class="btn btn-xs btn-default"
+                                            ng-click="alterarEndereco(endereco)"
+                                            data-toggle="modal"
+                                            data-target="#modalEndereco">Alterar</button>
+                                          <button type="button" class="btn btn-xs btn-danger"
+                                          ng-click="deletarEndereco(endereco)"
+                                           confirm="Deseja realmente apagar o registro?">Deletar</button>
+                                      </div>
+                                    </td>
+
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="text-right">
+                      <dir-pagination-controls></dir-pagination-controls>
+                    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalEndereco" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Endereço</h4>
+      </div>
+      <div class="modal-body">
+        <form name="frmEnd">
+          <div class="row">
+              <div class="col-md-12">
+                <div class="alert alert-danger" ng-show="showEndErrorMessage">
+                  <i class="fa fa-exclamation-circle"> </i>
+                    <span> {{msgEndError}}</span>
+                </div>
+                <div class="alert alert-success" ng-show="showEndSuccessMessage">
+                  <i class="fa fa-check-square-o"> </i>
+                    <span> Endereço Salvo com Sucesso!</span>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+
+            <div class="col-md-4">
+              <div class="form-group {{frmEnd.tipo.$error.required? 'has-error':''}}">
+                <label>Tipo:
+                </label>
+                <select ng-required="true" class="form-control" name="tipo"
+                  ng-options="end.id as end.name for end in tiposEndereco"
+                  ng-model="endereco.comp.dados.id_tipo_endereco">
+                    <option value=""  disabled selected>Selecione</option>                    
+                </select>
+                <span class="label label-danger" ng-show="frmEnd.tipo.$error.required">
+                  Campo Obrigatório
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="form-group {{frmEnd.cep.$error.required || frmEnd.cep.$error.cep ? 'has-error':''}}">
+                <label>CEP:
+                </label>
+                <div class="form-group input-group" style="margin-bottom: 0px;">
+                  <input ng-required="true" type="text" class="form-control" name="cep" placeholder="CEP"
+                    ng-model="endereco.dados.cep" ui-br-cep-mask>
+                  <span class="input-group-btn">
+                    <button type="button"
+                      class="btn {{frmEnd.cep.$error.required || frmEnd.cep.$error.cep ? 'btn-danger':'btn-info'}} "
+                      ng-disabled="frmEnd.cep.$error.required || frmEnd.cep.$error.cep"
+                      ng-click="consultarCEP()">
+                        <span class="fa fa-search fa-1x"></span>
+                    </button>
+                  </span>
+                </div>
+                <span class="label label-danger" ng-show="frmEnd.cep.$error.required">
+                  Campo Obrigatório
+                </span>
+
+                <span class="label label-danger" style="margin-left:2px" ng-show="frmEnd.cep.$error.cep" >
+                  CEP inválido
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+                <div class="form-group {{frmEnd.numero.$error.required ? 'has-error':''}}">
+                    <input  type="text" ng-required="true"
+                            name="numero"
+                            class="form-control"
+                            name="numero"
+                            placeholder="Número"
+                            ng-model="endereco.comp.dados.numero"
+                            maxlength="10"
+                              ></input>
+                  <span class="label label-danger" ng-show="frmEnd.numero.$error.required">Campo Obrigatório</span>
+                </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group">
+                  <input  type="text"
+                          class="form-control"
+                          name="complemento"
+                          placeholder="Complemento"
+                          maxlength="100"
+                          ng-model="endereco.comp.dados.complemento"
+                            ></input>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default well" ng-show="endereco.dados.logradouro" >
+
+            <div class="row" >
+                  <div class="col-md-2">
+                    <label>Logradouro: </label>
+                  </div>
+                  <div class="col-md-10">
+                    <span>{{endereco.dados.logradouro}} </span>
+                  </div>
+              </div>
+              <div class="row" >
+                      <div class="col-md-2">
+                      <label>Bairro: </label>
+                    </div>
+                    <div class="col-md-10">
+                      <span>{{endereco.dados.bairro}}</span>
+                    </div>
+                </div>
+
+                <div class="row" >
+                      <div class="col-md-2">
+                        <label>Cidade/UF: </label>
+                      </div>
+                      <div class="col-md-10">
+                        <span>{{endereco.dados.cidade}} / {{endereco.dados.estado}}</span>
+                      </div>
+                  </div>
+
+
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="salvarEndereco()">Salvar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+
+  </div>
+</div>

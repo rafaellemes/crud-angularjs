@@ -1,0 +1,653 @@
+<?xml version="1.0"?>
+<sql title="mcrdb" gridSize="10,10" fk_template="%f" cascadeDeleteFk="true" openEditWindowAfterAddTable="false" displayFieldType="false" defaultTableColor="#FFFFFF" defaultRelationColor="#000000" databaseType="mysql" dataTypes="[object Object]" defaultType="VARCHAR" showGrid="true" alignToGrid="false" svgNS="http://www.w3.org/2000/svg" drawLinesOnDrag="false" defaultFkUpdate="CASCADE" defaultFkDelete="CASCADE" fkActions="CASCADE,RESTRICT,NO ACTION" autoAlignGap="10" highlightTime="500" displayFkLines="true">
+  <table x="562" y="88" name="CONVENIO" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="nome">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="ativo">
+      <datatype>BOOLEAN</datatype>
+      <default>true</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="572" y="185" name="PLANO" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="nome">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="descricao">
+      <datatype>VARCHAR(200)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="id_convenio">
+      <datatype>INTEGER</datatype>
+      <relation table="CONVENIO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="ativo">
+      <datatype>BOOLEAN</datatype>
+      <default>true</default>
+    </row>
+    <row null="0" autoincrement="0" name="ativo">
+      <datatype>BOOLEAN</datatype>
+      <default>true</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="555" y="444" name="PRODUTOS" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="codigo_amb">
+      <datatype>VARCHAR(20)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="codigo_tus">
+      <datatype>VARCHAR(20)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="descricao">
+      <datatype>VARCHAR(150)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="qtd_ch">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="porte">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="porte_ch">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="m2_filme">
+      <datatype>DOUBLE</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="ativo">
+      <datatype>BOOLEAN</datatype>
+      <default>true</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="554" y="334" name="PLANO_PRODUTO" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_plano">
+      <datatype>INTEGER</datatype>
+      <relation table="PLANO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_produto">
+      <datatype>INTEGER</datatype>
+      <relation table="PRODUTOS" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="ativo">
+      <datatype>BOOLEAN</datatype>
+      <default>true</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="125" y="219" name="PESSOA" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_tipo_pessoa">
+      <datatype>INTEGER</datatype>
+      <relation table="TIPO_PESSOA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="1" autoincrement="0" name="id_usuario">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="USUARIO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="nome">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="sobrenome">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="cpf">
+      <datatype>VARCHAR(11)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="email">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="crm">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="ativo">
+      <datatype>BOOLEAN</datatype>
+      <default>true</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="317" y="195" name="PESSOA_PLANO" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="id_plano">
+      <datatype>INTEGER</datatype>
+      <relation table="PLANO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_pessoa">
+      <datatype>INTEGER</datatype>
+      <relation table="PESSOA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="40" y="48" name="TIPO_PESSOA" color="#FFFFFF" relation-color="#000000">
+    <comment>Funcion&#xE1;rio/Paciente/M&#xE9;dico</comment>
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="nome">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="descricao">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="356" y="77" name="USUARIO" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="login">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="senha">
+      <datatype>VARCHAR(20)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="ativo">
+      <datatype>BOOLEAN</datatype>
+      <default>true</default>
+    </row>
+    <row null="0" autoincrement="0" name="id_perfil">
+      <datatype>INTEGER</datatype>
+      <relation table="PERFIL" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="1023" y="65" name="CLINICA" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="nome_fantasia">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="descricao">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="1" autoincrement="0" name="cnpj">
+      <datatype>VARCHAR(17)</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="ativo">
+      <datatype>BOOLEAN</datatype>
+      <default>true</default>
+    </row>
+    <row null="1" autoincrement="0" name="razao_social">
+      <datatype>VARCHAR(150)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="767" y="76" name="CLINICA_CONVENIO" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_clinica">
+      <datatype>INTEGER</datatype>
+      <relation table="CLINICA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_convenio">
+      <datatype>INTEGER</datatype>
+      <relation table="CONVENIO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="786" y="227" name="CLINICA_MEDICOS" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_clinica">
+      <datatype>INTEGER</datatype>
+      <relation table="CLINICA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_medico">
+      <datatype>INTEGER</datatype>
+      <relation table="PESSOA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="principal">
+      <datatype>BOOLEAN</datatype>
+      <default>false</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="339" y="452" name="TELEFONE" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="numero">
+      <datatype>VARCHAR(9)</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="ddd">
+      <datatype>VARCHAR(2)</datatype>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="116" y="435" name="TELEFONE_PESSOA" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_pessoa">
+      <datatype>INTEGER</datatype>
+      <relation table="PESSOA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_telefone">
+      <datatype>INTEGER</datatype>
+      <relation table="TELEFONE" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="294" y="336" name="TELEFONE_CONVENIO" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_telefone">
+      <datatype>INTEGER</datatype>
+      <relation table="TELEFONE" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_convenio">
+      <datatype>INTEGER</datatype>
+      <relation table="CONVENIO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="773" y="411" name="TELEFONE_CLINICA" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_telefone">
+      <datatype>INTEGER</datatype>
+      <relation table="TELEFONE" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_clinica">
+      <datatype>INTEGER</datatype>
+      <relation table="CLINICA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="286" y="589" name="ENDERECO" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="logradouro">
+      <datatype>VARCHAR(150)</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="cep">
+      <datatype>VARCHAR(10)</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="bairro">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="cidade">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="estado">
+      <datatype>VARCHAR(2)</datatype>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="35" y="570" name="ENDERECO_PESSOA" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_endereco">
+      <datatype>INTEGER</datatype>
+      <relation table="ENDERECO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_pessoa">
+      <datatype>INTEGER</datatype>
+      <relation table="PESSOA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="numero">
+      <datatype>VARCHAR(10)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="complemento">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="466" y="656" name="ENDERECO_CONVENIO" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_endereco">
+      <datatype>INTEGER</datatype>
+      <relation table="ENDERECO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_convenio">
+      <datatype>INTEGER</datatype>
+      <relation table="CONVENIO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="numero">
+      <datatype>VARCHAR(10)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="complemento">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="769" y="619" name="ENDERECO_CLINICA" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_endereco">
+      <datatype>INTEGER</datatype>
+      <relation table="ENDERECO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_clinicia">
+      <datatype>INTEGER</datatype>
+      <relation table="CLINICA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="numero">
+      <datatype>VARCHAR(10)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="complemento">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="1389" y="174" name="LOGGING" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_usuario">
+      <datatype>INTEGER</datatype>
+      <relation table="USUARIO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_acao">
+      <datatype>INTEGER</datatype>
+      <relation table="ACAO_LOG" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="data">
+      <datatype>DATETIME</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_tabela">
+      <datatype>INTEGER</datatype>
+      <relation table="TABELA_LOG" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="1" autoincrement="0" name="id_registro">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="1197" y="48" name="ACAO_LOG" color="#FFFFFF" relation-color="#000000">
+    <comment>INCLUIR/ALTERAR/DESATIVAR</comment>
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="nome">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="descricao">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="1140" y="329" name="TABELA_LOG" color="#FFFFFF" relation-color="#000000">
+    <comment>Nome da TABELA (Para agilizar o desenvolvimento) -&gt;
+Cadastro de clientes (1);
+Cadastro de pacientes e pr&#xE9;vias (2);
+Cadastro de conv&#xEA;nios e tabelas (3);
+M&#xF3;dulo de faturamento</comment>
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="nome">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="descricao">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="218" y="15" name="PERFIL" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="nome">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="descricao">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="1158" y="622" name="PREVIA" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_tipo_previa">
+      <datatype>INTEGER</datatype>
+      <relation table="TIPO_PREVIA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_clinica">
+      <datatype>INTEGER</datatype>
+      <relation table="CLINICA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_pessoa">
+      <datatype>INTEGER</datatype>
+      <relation table="PESSOA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_convenio">
+      <datatype>INTEGER</datatype>
+      <relation table="CONVENIO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_status">
+      <datatype>INTEGER</datatype>
+      <relation table="STATUS_PREVIA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="data">
+      <datatype>DATETIME</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="observacao">
+      <datatype>VARCHAR(200)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="1150" y="468" name="TIPO_PREVIA" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="nome">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="descricao">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="1360" y="472" name="STATUS_PREVIA" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="nome">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="descricao">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="875" y="775" name="PREVIA_PRODUTOS" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_produtos">
+      <datatype>INTEGER</datatype>
+      <relation table="PRODUTOS" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_previa">
+      <datatype>INTEGER</datatype>
+      <relation table="PREVIA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="valor">
+      <datatype>DOUBLE</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="observacao">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="1429" y="842" name="FATURAMENTO" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="id_status">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+      <relation table="STATUS_FATURAMENTO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="data_criacao">
+      <datatype>DATETIME</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="data_fechamento">
+      <datatype>DATETIME</datatype>
+      <default>NULL</default>
+    </row>
+    <row null="0" autoincrement="0" name="id_clinica">
+      <datatype>INTEGER</datatype>
+      <relation table="CLINICA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="1640" y="765" name="STATUS_FATURAMENTO" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="nome">
+      <datatype>VARCHAR(100)</datatype>
+    </row>
+    <row null="1" autoincrement="0" name="descricao">
+      <datatype>VARCHAR(100)</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="1160" y="835" name="FATURAMENTO_PREVIA" color="#FFFFFF" relation-color="#000000">
+    <row null="0" autoincrement="1" name="id">
+      <datatype>INTEGER</datatype>
+    </row>
+    <row null="0" autoincrement="0" name="id_faturamento">
+      <datatype>INTEGER</datatype>
+      <relation table="FATURAMENTO" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="id_previa">
+      <datatype>INTEGER</datatype>
+      <relation table="PREVIA" row="id" on_update="CASCADE" on_delete="CASCADE"/>
+    </row>
+    <row null="0" autoincrement="0" name="status">
+      <datatype>BOOLEAN</datatype>
+      <default>false</default>
+    </row>
+    <row null="1" autoincrement="0" name="data_pgto">
+      <datatype>DATETIME</datatype>
+      <default>NULL</default>
+    </row>
+    <key name="" type="PRIMARY">
+      <part>id</part>
+    </key>
+  </table>
+</sql>

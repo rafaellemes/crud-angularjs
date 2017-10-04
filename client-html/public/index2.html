@@ -1,0 +1,25 @@
+<html>
+
+  <head>
+    <title> POC </title>
+    <script type="text/javascript" src="javascripts/plugins/angular/angular.min.js"></script>
+  </head>
+
+
+  <body>
+
+    <script>
+
+      angular.module('app', [])
+      .controller('Crtl', function($scope){
+
+          $scope.info = "Exibe";
+
+      });
+
+    </script>
+<div ng-app="app" ng-controller="Crtl">
+    {{info}}
+</div>
+  </body>
+</html>

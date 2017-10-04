@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mcr">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>MCR Reembolso</title>
+
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+	<link href="stylesheets/login.css" rel="stylesheet">
+         <link href="stylesheets/plugins/select.min.css" rel="stylesheet" type="text/css">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+
+<!--login modal-->
+<div id="loginModal"  class="login modal show" tabindex="-1" role="dialog" aria-hidden="true">
+	 <div class="vertical-alignment-helper col-md-12 col-sm-12" >
+  <div class="modal-dialog vertical-align-center modal-sm" ng-controller="LoginController">
+  <div class="modal-content ">
+
+			<div class="alert alert-danger" ng-show="showMsg">
+				<strong>ERRO</strong> <span>Login ou Senha inválido.</span>
+			</div>
+      <div class="modal-header">
+        <img id="profile-img" class="profile-img-card" src="images/avatar.png">
+
+      </div>
+      <div class="modal-body">
+          <form class="form col-md-12 center-block" >
+            <div class="form-group">
+              <input type="text" class="form-control input-lg"
+							 	placeholder="Login" ng-model="form.dados.login" />
+            </div>
+            <div class="form-group">
+              <input type="password" ng-model="form.dados.senha" class="form-control input-lg" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block" ng-click="submit()">Login</button>
+
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+
+		  </div>
+      </div>
+  </div>
+	</div>
+  </div>
+</div>
+	<!-- script references -->
+	<script src="javascripts/plugins/jquery/jquery.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="javascripts/plugins/bootstrap/bootstrap.min.js"></script>
+
+
+
+
+	    <!-- Angular Scripts -->
+	    <script type="text/javascript" src="javascripts/plugins/angular/angular.min.js"></script>
+    <script type="text/javascript" src="javascripts/plugins/angular/angular-sanitize.min.js"></script>
+	    <script type="text/javascript" src="javascripts/plugins/angular/angular-route.min.js"></script>
+	    <script type="text/javascript" src="javascripts/plugins/angular/angular-base64.min.js"></script>
+	    <script type="text/javascript" src="javascripts/plugins/angular/dirPagination.js"></script>
+	    <script type="text/javascript" src="javascripts/plugins/angular/masks.js"></script>
+			<script type="text/javascript" src="javascripts/plugins/angular/ngMask.min.js"></script>
+    <script type="text/javascript" src="javascripts/plugins/angular/ui-bootstrap-2.2.0.min.js"></script>
+    <script type="text/javascript" src="javascripts/plugins/angular/ui-bootstrap-tpls-2.2.0.min.js"></script>
+ <script type="text/javascript" src="javascripts/plugins/angular/select.min.js"></script>
+	    <script type="text/javascript" src="javascripts/src/main/main.js"></script>
+	    <script type="text/javascript" src="javascripts/src/main/controllers.js"></script>
+	    <script type="text/javascript" src="javascripts/src/main/services.js"></script>
+
+
+	   <!-- Angular Diretivas-->
+	   <script type="text/javascript" src="javascripts/src/directives/telefones.js"></script>
+
+
+	    <!-- Angular Util-->
+	    <script type="text/javascript" src="javascripts/src/util/Util.js"></script>
+
+	    <!-- Angular Controllers -->
+	    <script type="text/javascript" src="javascripts/src/controllers/LoginController.js"></script>
+	    <script type="text/javascript" src="javascripts/src/controllers/HomeController.js"></script>
+	    <script type="text/javascript" src="javascripts/src/controllers/DashController.js"></script>
+	    <script type="text/javascript" src="javascripts/src/controllers/FuncionarioCtrl.js"></script>
+	    <script type="text/javascript" src="javascripts/src/controllers/FuncionarioIACtrl.js"></script>
+	    <script type="text/javascript" src="javascripts/src/controllers/UserCtrl.js"></script>
+
+
+	    <!-- Angular Services-->
+	    <script type="text/javascript" src="javascripts/src/services/UserService.js"></script>
+	    <script type="text/javascript" src="javascripts/src/services/LoginService.js"></script>
+	      <script type="text/javascript" src="javascripts/src/services/TelefoneService.js"></script>
+	    <script type="text/javascript" src="javascripts/src/services/FuncionarioService.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,68 @@
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          Convênios
+          <small>Administração</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li>
+            <i class="fa fa-dashboard"></i>
+            <a ng-href="#/">Dashboard</a>
+          </li>
+          <li >
+            <i class="fa fa-fw fa-ambulance"></i>
+            <a ng-href="#/admin/convenios/">Convênios</a>
+          </li>
+          <li class="active">
+            <i class="fa {{icone}}"></i>
+            {{nomePagina}}
+          </li>
+        </ol>
+      </div>
+    </div>
+    <!-- /.row -->
+<form name="form">
+    <div class="row">
+      <div class="col-md-12">
+
+      <div class="alert alert-danger" ng-show="isShowErrorMessage()">
+        <i class="fa fa-exclamation-circle"> </i>
+          <span> Por favor, verifique os erros!</span>
+      </div>
+      <div class="alert alert-success" ng-show="isShowSuccessMessage()">
+        <i class="fa fa-check-square-o"> </i>
+          <span> Convênio Salvo com Sucesso!</span>
+      </div>
+    </div>
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group {{form.codigo_amb.$error.required ? 'has-error' : ''}}">
+          <label>Nome:
+          </label>
+          <input class="form-control" name="nome" placeholder="Nome"
+          ng-model="convenio.dados.nome"
+          ng-required="true" uppercase
+          ></input>
+          <span ng-show="form.nome.$error.required" class="label label-danger"> Campo Obrigatório </span>
+
+        </div>
+      </div>
+    </div>
+
+</form>
+
+<div ng-show="convenio.dados.id" ng-include="'partials/includes/planos.tpl.html'"></div>
+
+
+    <div class="row">
+      <div class="col-md-8">
+
+        <button type="button" class="btn btn-lg  btn-primary" ng-click="salvar()">
+          Salvar
+        </button>
+        <button type="button" class="btn btn-lg  btn-default" ng-click="voltar()">
+          Voltar
+        </button>
+
+      </div>
+    </div>

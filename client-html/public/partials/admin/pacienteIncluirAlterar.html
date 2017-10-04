@@ -1,0 +1,162 @@
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          Pacientes
+          <small>Administração</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li>
+            <i class="fa fa-dashboard"></i>
+            <a ng-href="#/">Dashboard</a>
+          </li>
+          <li >
+            <i class="fa fa-user"></i>
+            <a ng-href="#/admin/pacientes/">Pacientes</a>
+          </li>
+          <li class="active">
+            <i class="fa {{icone}}"></i>
+            {{nomePagina}}
+          </li>
+        </ol>
+      </div>
+    </div>
+    <!-- /.row -->
+<form name="form">
+    <div class="row">
+      <div class="col-md-12">
+
+      <div class="alert alert-danger" ng-show="isShowErrorMessage()">
+        <i class="fa fa-exclamation-circle"> </i>
+          <span> Por favor, verifique os erros!</span>
+      </div>
+      <div class="alert alert-success" ng-show="isShowSuccessMessage()">
+        <i class="fa fa-check-square-o"> </i>
+          <span> Paciente Salvo com Sucesso!</span>
+      </div>
+    </div>
+      <div class="col-md-10 col-lg-10">
+        <div class="form-group {{form.nome.$error.required ? 'has-error' : ''}}">
+          <label>Nome:
+          </label>
+          <input class="form-control" name="nome" placeholder="Nome"
+          ng-model="paciente.dados.nome"
+          ng-required="true"
+          uppercase
+          ></input>
+          <span ng-show="form.nome.$error.required" class="label label-danger"> Campo Obrigatório </span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-lg-10">
+        <div class="form-group {{form.nome_mae.$error.required ? 'has-error' : ''}}">
+          <label>Nome da Mãe:
+          </label>
+          <input class="form-control" name="nome_mae" placeholder="Nome da Mãe"
+          ng-model="paciente.dados.nome_mae"
+          ng-required="true"
+          uppercase
+          ></input>
+          <span ng-show="form.nome_mae.$error.required" class="label label-danger"> Campo Obrigatório </span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-lg-10">
+        <div class="form-group">
+          <label>Nome da Empresa:
+          </label>
+          <input class="form-control" name="nome_empresa" placeholder="Nome da Empresa"
+          ng-model="paciente.dados.nome_empresa"
+          uppercase
+          ></input>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group {{form.email.$error.email? 'has-error' : ''}}">
+          <label>Email:
+          </label>
+          <div class="form-group input-group" style="margin-top:0">
+            <span class="input-group-addon">@</span>
+            <input type="email" class="form-control" name="email" placeholder="Email"
+             ng-model="paciente.dados.email"
+             uppercase>
+          </div>
+          <span class="label label-danger" ng-show="form.email.$error.email">
+              Email Inválido
+          </span>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group {{form.cpf.$error.cpf ? 'has-error' : ''}}">
+          <label>CPF:
+          </label>
+          <input class="form-control" name="cpf" placeholder="CPF" ng-model="paciente.dados.cpf" ui-br-cpf-mask>
+          <span class="label label-danger" ng-show="form.cpf.$error.cpf">
+              CPF Inválido
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+          <label>Data de Nascimento:
+          </label>
+          <div class="form-group input-group {{!form.dt_nascimento.$valid? 'has-error' : ''}}" style="margin-top:0">
+            <span class="input-group-addon">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+            </span>
+            <input type="text" class="form-control" name="dt_nascimento" placeholder="dd/mm/yyyy"
+             ng-model="paciente.dados.dt_nascimento"
+             ng-required="true"
+             mask="39/19/9999" >
+          </div>
+          <span class="label label-danger" ng-show="!form.dt_nascimento.$valid">
+              Data Inválida
+          </span>
+          <span ng-show="form.dt_nascimento.$error.required" style="margin-left:2px" class="label label-danger"> Campo Obrigatório </span>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+          <label>Observação:
+          </label>
+          <input class="form-control" name="observacao" placeholder="Observação"
+          ng-model="paciente.dados.observacao"
+          uppercase
+          ></input>
+        </div>
+      </div>
+    </div>
+
+</form>
+
+
+    <div ng-show="paciente.dados.id" ng-include="'partials/includes/convenios.tpl.html'"></div>
+
+    <!-- telefones aqui -->
+    <div telefones ng-show="paciente.dados.id"></div>
+
+    <!-- enderecos aqui -->
+    <div enderecos ng-show="paciente.dados.id"></div>
+
+    <div class="row">
+      <div class="col-md-8">
+
+        <button type="button" class="btn btn-lg  btn-primary" ng-click="salvar()">
+          Salvar
+        </button>
+        <button type="button" class="btn btn-lg  btn-default" ng-click="voltar()">
+          Voltar
+        </button>
+
+      </div>
+    </div>

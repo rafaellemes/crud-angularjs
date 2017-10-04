@@ -1,0 +1,111 @@
+<div class="page-header">
+  <h1></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12 col-lg-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="panel-title">
+          Planos</span>
+        <div class="pull-right">
+          <button type="button" class="btn btn-info fa fa-plus" data-toggle="modal" data-target="#planoModal" ng-click="novoPlano()"></button>
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <div class="table-responsive">
+
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th></th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr dir-paginate="plano in listaPlanosConvenio  | itemsPerPage: 5">
+
+                <td>{{plano.nome}}</td>
+                <td>{{plano.descricao}}</td>
+
+                <td>
+                  <div>
+
+                    <div>
+                      <button type="button" class="btn btn-xs btn-default"
+                        data-toggle="modal" 
+                        ng-click="editarPlano(plano)">Editar</button>
+
+                      <button type="button" class="btn btn-xs btn-danger"
+                        ng-click="deletarPlano(plano)"
+                        confirm="Deseja realmente apagar o registro?">Deletar</button>
+                      </div>
+                  </div>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+        <div class="text-right">
+          <dir-pagination-controls></dir-pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="planoModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Planos</h4>
+      </div>
+      <div class="modal-body">
+        <form name="frmPlano">
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+
+                <label>Plano:
+                </label>
+                <select   ng-model="plano.dados.id_plano"
+                  class="form-control" name="plano"
+                  ng-required="true"
+                  ng-options="plan.id as plan.nome for plan in listaPlanosAtivos"
+                  >
+                    <option value="" disabled selected>Selecione</option>
+
+                </select>
+                <span class="label label-danger" ng-show="frmPlano.plano.$error.required">
+                  Campo Obrigatório
+                </span>
+
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"
+        ng-click="salvarPlano()"
+        data-dismiss="modal">Salvar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+
+  </div>
+</div>

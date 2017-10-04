@@ -1,0 +1,137 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+      Prévias
+      <small></small>
+    </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ng-href="#/">Dashboard</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-fw fa-tasks"></i> Prévias
+            </li>
+        </ol>
+        <h4>
+          Selecione um Paciente:
+        </h4>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+
+    <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+            <label>Razão Social:
+            </label>
+            <input class="form-control" placeholder="Razão Social" ng-model="formulario.dados.razao_social" uppercase></input>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+            <label>Nome Fantasia:
+            </label>
+            <input class="form-control" placeholder="Nome Fantasia" ng-model="formulario.dados.nome_fantasia" uppercase></input>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-6 col-lg-5">
+        <div class="form-group">
+            <label>CNPJ:
+            </label>
+            <input class="form-control" placeholder="CNPJ" ng-model="formulario.dados.cnpj" uppercase ui-br-cnpj-mask></input>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="margin-top-10">
+    <div>
+        <div class="row ">
+            <div class="col-md-8 hidden-xs ">
+
+                <button type="button" class="btn btn-lg  btn-primary" ng-click="pesquisar()">
+                    Pesquisar
+                </button>
+                <button type="button" class="btn btn-lg  btn-info" ng-click="novaPrevia()">
+                    Novo
+                 </button>
+                <button type="button" class="btn btn-lg  btn-default" ng-click="limparForm()">
+                    Limpar
+                </button>
+
+            </div>
+
+            <div class="col-xs-12 hidden-lg hidden-md hidden-sm">
+                <button type="button" class="btn  btn-primary" ng-click="pesquisar()">
+                    Pesquisar
+                </button>
+                 <button type="button" class="btn btn-lg  btn-info" ng-click="novaPrevia()">
+                    Novo
+                 </button>
+                <button type="button" class="btn  btn-default" ng-click="limparForm()">
+                    Limpar
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="page-header">
+        <h1></h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-10">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Clínicas</h3>
+
+                </div>
+
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Razão Social</th>
+                                    <th>Nome Fantasia</th>
+                                    <th>CNPJ</th>
+                                    <th>Email</th>
+                                    <th> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr dir-paginate="clinica in listaClinicas  | itemsPerPage: 5">
+                                    <td>{{clinica.razao_social}}</td>
+                                    <td>{{clinica.nome_fantasia}}</td>
+                                    <td><span ui-br-cnpj-mask>{{clinica.cnpj}}</span> </td>
+                                    <td>{{clinica.email}}</td>
+
+                                    <td>
+                                        <div>
+                                            <button type="button" class="btn btn-xs btn-default" ng-click="selecionarClinica(clinica)">Selecionar</button>
+
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="text-right">
+                        <dir-pagination-controls></dir-pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

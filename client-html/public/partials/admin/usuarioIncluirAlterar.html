@@ -1,0 +1,113 @@
+  <!-- Page Heading -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">
+        Usuários
+        <small>Administração</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li>
+          <i class="fa fa-dashboard"></i>
+          <a ng-href="#/">Dashboard</a>
+        </li>
+        <li class="active">
+          <i class="fa fa-usuarios"></i>
+          Usuários
+        </li>
+      </ol>
+    </div>
+  </div>
+  <!-- /.row -->
+  <!-- /.row -->
+<form name="form">
+  <div class="row">
+    <div class="col-md-12">
+
+    <div class="alert alert-danger" ng-show="isShowErrorMessage()">
+      <i class="fa fa-exclamation-circle"> </i>
+        <span> Por favor, verifique os erros!</span>
+    </div>
+    <div class="alert alert-success" ng-show="isShowSuccessMessage()">
+      <i class="fa fa-check-square-o"> </i>
+        <span> Usuário Salvo com Sucesso!</span>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-lg-5">
+    <div class="form-group {{form.perf.$error.required? 'has-error':''}}">
+      <label>Perfil:
+      </label>
+      <select   ng-model="usuario.dados.id_perfil"
+        ng-required="true" class="form-control" name="perf"
+        ng-options="perfil.id as perfil.nome for perfil in listaPerfis"
+        >
+          <option value="" disabled selected>Selecione</option>
+
+      </select>
+      <span class="label label-danger" ng-show="form.perf.$error.required">
+        Campo Obrigatório
+      </span>
+    </div>
+
+  </div>
+
+  <div class="col-md-6 col-lg-5">
+    <div class="form-group {{form.login.$error.required ? 'has-error' : ''}}">
+      <label>Login:
+      </label>
+      <input class="form-control" name="login" placeholder="Nome"
+      ng-model="usuario.dados.login"
+      ng-required="true"
+      ></input>
+      <span ng-show="form.login.$error.required" class="label label-danger"> Campo Obrigatório </span>
+
+    </div>
+  </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-lg-5">
+      <div class="form-group {{form.senha.$error.required ? 'has-error' : ''}}">
+        <label>Senha:
+        </label>
+        <input type="password" class="form-control" name="senha" placeholder="Senha"
+        ng-model="usuario.dados.senha"
+        ng-required="true"
+        ></input>
+        <span ng-show="form.senha.$error.required" class="label label-danger"> Campo Obrigatório </span>
+
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-5">
+      <div class="form-group {{form.confirm.$error.required ? 'has-error' : ''}}">
+        <label>Confirme a Senha:
+        </label>
+        <input type="password" class="form-control" name="confirm" placeholder="Confirme a Senha"
+        ng-model="usuario.dados.confirm"
+        ng-required="true"
+        ></input>
+        <span ng-show="form.confirm.$error.required" class="label label-danger"> Campo Obrigatório </span>
+        <span style="margin-left: 3px"
+          ng-show="usuario.dados.senha !==  usuario.dados.confirm"
+            class="label label-danger"> Senhas Diferente </span>
+
+      </div>
+    </div>
+
+
+</form>
+
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <button type="button" class="btn btn-lg  btn-primary" ng-click="salvar()">
+        Salvar
+      </button>
+      <button type="button" class="btn btn-lg  btn-default" ng-click="voltar()">
+        Voltar
+      </button>
+
+    </div>
+  </div>

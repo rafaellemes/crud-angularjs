@@ -1,0 +1,170 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+                  Prévias
+                  <small></small>
+                </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ng-href="#/">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-fw fa-tasks"></i>
+                <a ng-href="#/previas">Prévias</a>
+            </li>
+            <li class="active">
+                <i class="fa {{icone}}"></i> {{nomePagina}}
+            </li>
+        </ol>
+    </div>
+</div>
+
+<form name="form">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="alert alert-danger" ng-show="isShowErrorMessage()">
+                <i class="fa fa-exclamation-circle"> </i>
+                <span> Por favor, verifique os erros!</span>
+            </div>
+            <div class="alert alert-success" ng-show="isShowSuccessMessage()">
+                <i class="fa fa-check-square-o"> </i>
+                <span> Clínica Salvo com Sucesso!</span>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <div class="row">
+        
+        <div class="col-md-4 col-lg-4">
+
+            <label>Tipo:
+            </label>
+            <select ng-model="previa.dados.id_tipo_previa" class="form-control" name="tipo" ng-options="tipo.id as tipo.nome for tipo in tiposPrevia"
+                    ng-required="true">
+                <option value="" disabled selected>Selecione</option>
+
+            </select>
+            <span class="label label-danger" ng-show="form.tipo.$error.required">
+            Campo Obrigatório
+          </span>
+
+        </div>
+        <div class="col-md-4 col-lg-4">
+
+            <label>Status:
+            </label>
+            <select ng-model="previa.dados.id_status" class="form-control" name="status" 
+                    ng-options="sta.id as sta.nome for sta in statusPrevia"
+                    ng-required="true">
+                <option value="" disabled selected>Selecione</option>
+
+            </select>
+            <span class="label label-danger" ng-show="form.status.$error.required">
+            Campo Obrigatório
+          </span>
+            
+        </div>
+        
+    </div>
+    <br/>
+    
+    
+
+    <div class="row">
+     <div class="col-md-8 col-lg-8">
+         <label>Paciente:
+            </label>
+         <div class="form-group" >
+             
+         
+             <div class="form-group input-group " style="margin-bottom: 0px;">
+                 <input type="text" name="paciente" class="form-control" 
+                        placeholder="Clique para pesquisar"
+                        ng-model="paciente.dados.nome"
+                        ng-required="true"
+                        disabled>
+                  </input>
+                <span class="input-group-btn"  >
+                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModalPaciente">
+                        <i class="fa fa-search fa-1x"></i>
+                    </button>
+               </span>  
+              
+             </div>
+         <span class="label label-danger"   ng-show="form.paciente.$error.required">
+                Campo Obrigatório
+              </span> 
+        </div>
+    </div>
+    </div>
+    
+<div class="row">
+
+    <div class="col-md-4 col-lg-4">
+
+            <label>Convênio:
+            </label>
+            <select ng-model="previa.dados.id_convenio" class="form-control" name="convenio" 
+                    ng-options="conv.id_convenio as conv.nome for conv in listaConvenios"
+                    ng-required="true"
+                    ng-disabled="form.paciente.$error.required">
+                
+            </select>
+            <span class="label label-danger" ng-show="form.convenio.$error.required">
+            Campo Obrigatório
+          </span>
+            
+        </div>
+    
+    <div class="col-md-4 col-lg-4">
+
+            <label>Plano:
+            </label>
+        <br/>
+            <span>{{plano.dados.nome}}
+            </span>
+            
+            
+        </div>
+
+</div>
+
+<div ng-show="previa.dados.id_convenio" ng-include="'partials/includes/tabelas-previa.tpl.html'"></div>
+
+<div class="row" ng-show="previa.dados.id_convenio" >
+     <div class="col-md-8 col-lg-8">
+         <label>Clínica:
+            </label>
+         <div class="form-group" >
+             
+         
+             <div class="form-group input-group " style="margin-bottom: 0px;">
+                 <input type="text" name="clinica" class="form-control" 
+                        placeholder="Clique para pesquisar"
+                        ng-model="clinica.dados.nome_fantasia"
+                        ng-required="true"
+                        disabled>
+                  </input>
+                <span class="input-group-btn"  >
+                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModalClinica">
+                        <i class="fa fa-search fa-1x"></i>
+                    </button>
+               </span>  
+              
+             </div>
+         <span class="label label-danger"   ng-show="form.clinica.$error.required">
+                Campo Obrigatório
+              </span> 
+        </div>
+    </div>
+    </div>
+
+</form>
+
+<div ng-show="true" ng-include="'partials/includes/modal-paciente.tpl.html'"></div>
+
+<div ng-show="previa.dados.id_convenio" ng-include="'partials/includes/modal-clinica.tpl.html'"></div>

@@ -1,0 +1,123 @@
+<div class="page-header">
+  <h1></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12 col-lg-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="panel-title">
+          Pacientes</span>
+        <div class="pull-right">
+          <button type="button" class="btn btn-info fa fa-plus" data-toggle="modal" data-target="#pacienteModal" ng-click="novoPaciente()"></button>
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <div class="table-responsive">
+
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Nome</th>                
+                <th>Matrícula</th>
+                <th></th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr dir-paginate="paciente in listaPacientesConvenio  | itemsPerPage: 5">
+
+                <td>{{paciente.nome}}</td>                
+                <td>{{paciente.matricula}}</td>
+
+                <td>
+                  <div>
+
+                    <div>
+                      <button type="button" class="btn btn-xs btn-default"
+                        data-toggle="modal" data-target="#pacienteModal"
+                        ng-click="editarPaciente(paciente)">Editar</button>
+
+                      <button type="button" class="btn btn-xs btn-danger"
+                        ng-click="deletarPaciente(paciente)"
+                        confirm="Deseja realmente apagar o registro?">Deletar</button>
+                      </div>
+                  </div>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+        <div class="text-right">
+          <dir-pagination-controls></dir-pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="pacienteModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Pacientes</h4>
+      </div>
+      <div class="modal-body">
+        <form name="frmPaciente">
+          <div class="row">
+            <div class="col-md-6 col-lg-5">
+
+                <label>Paciente:
+                </label>
+                <select   ng-model="paciente.dados.id_pessoa"
+                  class="form-control" name="paciente"
+                  ng-options="paci.id as paci.nome for paci in listaPacientesAtivos"
+                  ng-required="true"
+                  >
+                    <option value="" disabled selected>Selecione</option>
+
+                </select>
+                <span class="label label-danger" ng-show="frmPaciente.paciente.$error.required">
+                  Campo Obrigatório
+                </span>              
+            </div>
+
+            <div class="col-md-6 col-lg-5">
+
+                <label>Matrícula:
+                </label>
+                <input class="form-control" name="matricula" placeholder="Matrícula"
+                    ng-model="paciente.dados.matricula"                   
+                    ng-required="true" uppercase
+                    ></input>
+                <span class="label label-danger" ng-show="frmPaciente.matricula.$error.required">
+                  Campo Obrigatório
+                </span>
+
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" 
+       
+        ng-click="salvarPaciente()">Salvar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
