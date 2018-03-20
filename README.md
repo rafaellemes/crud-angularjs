@@ -1,6 +1,5 @@
-### REEMBOLSO
+### CRUD ANGULARJS
 
-Nome: Projeto de Gerenciamento de Reembolso
 Desenvolvedor: Rafael Lemes
 
 ### Visão geral
